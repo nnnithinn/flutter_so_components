@@ -53,11 +53,11 @@ class LoginScreen extends DataScreen {
 
   Widget _fetchLoginForm() {
     Field<String> usernameField = getField('Username', false);
-    Field<String> passwordField = getField('Username', true);
+    Field<String> passwordField = getField('Password', true);
     return Material(
       color: loginFormColor ?? const Color.fromARGB(1000, 245, 245, 245),
       child: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(30),
         child: Form(
           key: formKey,
           child: Column(
@@ -71,7 +71,28 @@ class LoginScreen extends DataScreen {
               ElevatedButton(
                   onPressed: () =>
                       {_login(usernameField.value!, passwordField.value!)},
-                  child: const Text('Login'))
+                  child: const Text('Login')
+              ),
+
+              const SizedBox(height: 10),
+
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                      onPressed: () => {},
+                      child: const Text('Sign Up')
+                  ),
+
+                  const VerticalDivider(thickness: 10),
+
+                  TextButton(
+                      onPressed: ()=>{},
+                      child: const Text('Forgot password')
+                  )
+                ],
+              )
             ],
           ),
         ),
@@ -92,7 +113,6 @@ class LoginScreen extends DataScreen {
   }
 
   void _login(String username, String password) async {
-    App.message('in login method');
     if (isValid) {
       Client client = Client('emqim12.engravsystems.com', 'emqimtest');
       String status = await client.login(username, password);
