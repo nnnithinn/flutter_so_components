@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_so_component/ConnectionClient.dart';
+import 'package:flutter_so_component/connection_client.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:so/so.dart';
 import 'package:so_flutter/so_flutter.dart';
