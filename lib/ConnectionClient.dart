@@ -15,7 +15,6 @@ class ConnectionClient {
     _instance = this;
   }
 
-  //Connection Client works as a singleton
   static ConnectionClient get() {
     return _instance ??= ConnectionClient(client: null);
   }
