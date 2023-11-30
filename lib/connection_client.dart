@@ -18,4 +18,8 @@ class ConnectionClient {
   static ConnectionClient get() {
     return _instance ??= ConnectionClient(client: null);
   }
+
+  static Client createClient() {
+    return Client('emqim12.engravsystems.com', 'emqimtest');
+  }
 }
